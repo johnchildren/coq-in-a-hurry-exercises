@@ -263,3 +263,20 @@ Proof.
     reflexivity.
   rewrite IHn; reflexivity.
 Qed.
+
+Lemma exercise7 : forall n m, add (S n) m = S (add n m).
+Proof.
+  intros n; induction m; simpl.
+  apply exercise6;
+  reflexivity.
+  rewrite <- exercise6.
+  reflexivity.
+Qed.
+
+Lemma exercise8 : forall n m, add n m = n + m.
+Proof.
+  induction n; intros m; simpl.
+  reflexivity.
+  rewrite <- IHn.
+  apply exercise6.
+Qed.
